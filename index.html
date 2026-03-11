@@ -2,19 +2,17 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>BluePlayer</title>
 
-    <link rel="manifest" href="manifest.json" />
     <link rel="stylesheet" href="src/css/style.css" />
 
-    <meta name="theme-color" content="#0b0f1a" />
+    <link rel="manifest" href="manifest.json" />
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="icon" href="icon-192.png" />
+
+    <meta name="theme-color" content="#0b0f1a" />
   </head>
 
   <body>
@@ -22,9 +20,9 @@
       <aside class="sidebar">
         <h1 class="logo">BluePlayer</h1>
 
-        <input type="file" id="file-input" multiple accept="audio/*" hidden />
-
         <button id="upload-btn">Adicionar músicas</button>
+
+        <input type="file" id="file-input" multiple accept="audio/*" hidden />
 
         <ul id="playlist"></ul>
       </aside>
@@ -40,7 +38,7 @@
           <button id="next">⏭</button>
         </div>
 
-        <input id="progress" type="range" min="0" max="100" value="0" />
+        <input type="range" id="progress" value="0" />
       </main>
     </div>
 
@@ -48,53 +46,37 @@
       <div class="volume-area">
         <label>Volume</label>
 
-        <div class="slider-box">
-          <input
-            id="volume"
-            type="range"
-            min="0"
-            max="1"
-            step="0.01"
-            value="1"
-          />
-
-          <span id="volume-value">100%</span>
-        </div>
+        <input type="range" id="volume" min="0" max="1" step="0.01" value="1" />
       </div>
 
       <div class="eq">
         <div class="eq-band">
-          <input id="bass" type="range" min="-10" max="10" value="0" />
-          <span class="eq-value" id="bass-value">0</span>
           <label>Grave</label>
+          <input type="range" id="bass" min="-10" max="10" value="0" />
         </div>
 
         <div class="eq-band">
-          <input id="mid" type="range" min="-10" max="10" value="0" />
-          <span class="eq-value" id="mid-value">0</span>
           <label>Médio</label>
+          <input type="range" id="mid" min="-10" max="10" value="0" />
         </div>
 
         <div class="eq-band">
-          <input id="treble" type="range" min="-10" max="10" value="0" />
-          <span class="eq-value" id="treble-value">0</span>
           <label>Agudo</label>
+          <input type="range" id="treble" min="-10" max="10" value="0" />
         </div>
       </div>
 
       <button id="fullscreen">⛶</button>
     </footer>
 
-    <script src="src/js/playlist.js"></script>
     <script src="src/js/player.js"></script>
+    <script src="src/js/playlist.js"></script>
     <script src="src/js/ui.js"></script>
     <script src="src/js/visualizer.js"></script>
 
     <script>
       if ("serviceWorker" in navigator) {
-        window.addEventListener("load", () => {
-          navigator.serviceWorker.register("./sw.js");
-        });
+        navigator.serviceWorker.register("./sw.js");
       }
     </script>
   </body>
