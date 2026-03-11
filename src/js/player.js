@@ -1,63 +1,58 @@
-const audio = new Audio();
+class Player {
+  constructor() {
+    this.audio = new Audio();
+    this.index = 0;
 
-let playlist = [];
-let currentIndex = 0;
+    this.audio.addEventListener("ended", () => {
+      this.next();
+    });
+  }
 
-function playTrack(index) {
-  currentIndex = index;
-  const track = playlist[index];
+  load(index) {
+    if (!playlist[index]) return;
 
-  audio.src = track.url;
-  audio.play();
+    this.index = index;
 
-  document.getElementById("trackTitle").innerText = track.name;
+    this.audio.src = playlist[index].file;
 
-  updateMediaSession(track.name);
-}
+    this.audio.load();
+  }
 
-function nextTrack() {
-  if (currentIndex < playlist.length - 1) {
-    currentIndex++;
-    playTrack(currentIndex);
+  play() {
+    this.audio.play().catch(() => {});
+  }
+
+  toggle() {
+    if (this.audio.paused) {
+      this.play();
+    } else {
+      this.audio.pause();
+    }
+  }
+
+  next() {
+    this.index++;
+
+    if (this.index >= playlist.length) {
+      this.index = 0;
+    }
+
+    this.load(this.index);
+    this.play();
+    updateTitle();
+  }
+
+  prev() {
+    this.index--;
+
+    if (this.index < 0) {
+      this.index = playlist.length - 1;
+    }
+
+    this.load(this.index);
+    this.play();
+    updateTitle();
   }
 }
 
-function prevTrack() {
-  if (currentIndex > 0) {
-    currentIndex--;
-    playTrack(currentIndex);
-  }
-}
-
-/* Media Session API */
-
-function updateMediaSession(title) {
-  if ("mediaSession" in navigator) {
-    navigator.mediaSession.metadata = new MediaMetadata({
-      title: title,
-      artist: "BluePlayer",
-    });
-
-    navigator.mediaSession.setActionHandler("play", () => {
-      audio.play();
-    });
-
-    navigator.mediaSession.setActionHandler("pause", () => {
-      audio.pause();
-    });
-
-    navigator.mediaSession.setActionHandler("previoustrack", () => {
-      prevTrack();
-    });
-
-    navigator.mediaSession.setActionHandler("nexttrack", () => {
-      nextTrack();
-    });
-  }
-}
-
-/* passar música automaticamente */
-
-audio.addEventListener("ended", () => {
-  nextTrack();
-});
+const player = new Player();
