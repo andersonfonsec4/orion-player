@@ -114,3 +114,39 @@ fullscreenBtn.onclick = () => {
     document.exitFullscreen();
   }
 };
+/* ===== EQUALIZER CONTROLS ===== */
+
+const eqSliders = document.querySelectorAll(".eq-band input");
+
+eqSliders.forEach((slider, index) => {
+  slider.addEventListener("input", () => {
+    player.setEQ(index, slider.value);
+  });
+});
+/* ===== PRESETS DO EQUALIZADOR ===== */
+
+const presetSelect = document.getElementById("presetSelect");
+
+const presets = {
+  flat: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+
+  bass: [6, 5, 4, 2, 0, -2, -2, -2, -2],
+
+  rock: [4, 3, 2, 1, 0, 1, 2, 3, 4],
+
+  pop: [-1, 2, 4, 4, 2, 0, -1, -1, -1],
+};
+
+presetSelect.addEventListener("change", () => {
+  const preset = presets[presetSelect.value];
+
+  if (!preset) return;
+
+  const sliders = document.querySelectorAll(".eq-band input");
+
+  sliders.forEach((slider, index) => {
+    slider.value = preset[index];
+
+    player.setEQ(index, preset[index]);
+  });
+});

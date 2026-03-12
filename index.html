@@ -28,7 +28,71 @@
       </aside>
 
       <main class="player">
-        <canvas id="visualizer"></canvas>
+        <!-- VISUALIZADOR -->
+
+        <canvas id="music-bars"></canvas>
+
+        <!-- EQUALIZADOR -->
+
+        <div class="equalizer-container">
+          <div class="eq-header">
+            <label>Preset:</label>
+
+            <select id="presetSelect">
+              <option value="flat">Flat</option>
+              <option value="bass">Bass Boost</option>
+              <option value="rock">Rock</option>
+              <option value="pop">Pop</option>
+            </select>
+          </div>
+
+          <div class="eq-bands">
+            <div class="eq-band">
+              <input type="range" min="-12" max="12" value="0" />
+              <span>60Hz</span>
+            </div>
+
+            <div class="eq-band">
+              <input type="range" min="-12" max="12" value="0" />
+              <span>120Hz</span>
+            </div>
+
+            <div class="eq-band">
+              <input type="range" min="-12" max="12" value="0" />
+              <span>250Hz</span>
+            </div>
+
+            <div class="eq-band">
+              <input type="range" min="-12" max="12" value="0" />
+              <span>500Hz</span>
+            </div>
+
+            <div class="eq-band">
+              <input type="range" min="-12" max="12" value="0" />
+              <span>1k</span>
+            </div>
+
+            <div class="eq-band">
+              <input type="range" min="-12" max="12" value="0" />
+              <span>2k</span>
+            </div>
+
+            <div class="eq-band">
+              <input type="range" min="-12" max="12" value="0" />
+              <span>4k</span>
+            </div>
+
+            <div class="eq-band">
+              <input type="range" min="-12" max="12" value="0" />
+              <span>8k</span>
+            </div>
+
+            <div class="eq-band">
+              <input type="range" min="-12" max="12" value="0" />
+              <span>16k</span>
+            </div>
+          </div>
+        </div>
 
         <h2 id="track-title">Selecione uma música</h2>
 
@@ -47,23 +111,6 @@
         <label>Volume</label>
 
         <input type="range" id="volume" min="0" max="1" step="0.01" value="1" />
-      </div>
-
-      <div class="eq">
-        <div class="eq-band">
-          <label>Grave</label>
-          <input type="range" id="bass" min="-10" max="10" value="0" />
-        </div>
-
-        <div class="eq-band">
-          <label>Médio</label>
-          <input type="range" id="mid" min="-10" max="10" value="0" />
-        </div>
-
-        <div class="eq-band">
-          <label>Agudo</label>
-          <input type="range" id="treble" min="-10" max="10" value="0" />
-        </div>
       </div>
 
       <button id="fullscreen">⛶</button>
