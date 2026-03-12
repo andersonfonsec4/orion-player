@@ -20,7 +20,7 @@
       <aside class="sidebar">
         <h1 class="logo">BluePlayer</h1>
 
-        <button id="upload-btn">Adicionar músicas</button>
+        <label for="file-input" id="upload-btn"> Adicionar músicas </label>
 
         <input type="file" id="file-input" multiple accept="audio/*" hidden />
 
@@ -28,67 +28,63 @@
       </aside>
 
       <main class="player">
-        <!-- VISUALIZADOR -->
-
         <canvas id="music-bars"></canvas>
-
-        <!-- EQUALIZADOR -->
 
         <div class="equalizer-container">
           <div class="eq-header">
             <label>Preset:</label>
 
-            <select id="presetSelect">
+            <select id="preset">
               <option value="flat">Flat</option>
-              <option value="bass">Bass Boost</option>
-              <option value="rock">Rock</option>
               <option value="pop">Pop</option>
+              <option value="rock">Rock</option>
+              <option value="dance">Dance</option>
             </select>
           </div>
 
           <div class="eq-bands">
             <div class="eq-band">
-              <input type="range" min="-12" max="12" value="0" />
+              <input type="range" min="-10" max="10" value="0" />
               <span>60Hz</span>
             </div>
 
             <div class="eq-band">
-              <input type="range" min="-12" max="12" value="0" />
+              <input type="range" min="-10" max="10" value="0" />
               <span>120Hz</span>
             </div>
 
             <div class="eq-band">
-              <input type="range" min="-12" max="12" value="0" />
+              <input type="range" min="-10" max="10" value="0" />
               <span>250Hz</span>
             </div>
 
             <div class="eq-band">
-              <input type="range" min="-12" max="12" value="0" />
+              <input type="range" min="-10" max="10" value="0" />
               <span>500Hz</span>
             </div>
 
             <div class="eq-band">
-              <input type="range" min="-12" max="12" value="0" />
+              <input type="range" min="-10" max="10" value="0" />
               <span>1k</span>
             </div>
 
             <div class="eq-band">
-              <input type="range" min="-12" max="12" value="0" />
+              <input type="range" min="-10" max="10" value="0" />
               <span>2k</span>
             </div>
 
             <div class="eq-band">
-              <input type="range" min="-12" max="12" value="0" />
+              <input type="range" min="-10" max="10" value="0" />
               <span>4k</span>
             </div>
 
             <div class="eq-band">
-              <input type="range" min="-12" max="12" value="0" />
+              <input type="range" min="-10" max="10" value="0" />
               <span>8k</span>
             </div>
 
             <div class="eq-band">
-              <input type="range" min="-12" max="12" value="0" />
+              <input type="range" min="-10" max="10" value="0" />
               <span>16k</span>
             </div>
           </div>
