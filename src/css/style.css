@@ -3,7 +3,7 @@ body {
   font-family: Inter, sans-serif;
   background: #0b0f1a;
   color: white;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 /* LAYOUT */
@@ -19,7 +19,7 @@ body {
   width: 260px;
   background: #05050f;
   padding: 20px;
-  overflow: auto;
+  overflow-y: auto;
   border-right: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -105,7 +105,6 @@ body {
   justify-content: center;
 
   gap: 18px;
-
   padding: 20px;
 }
 
@@ -114,11 +113,9 @@ body {
 #music-bars {
   width: 85%;
   max-width: 900px;
-
   height: 110px;
 
   border-radius: 12px;
-
   background: #01040b;
 
   box-shadow: 0 0 30px rgba(59, 130, 246, 0.25);
@@ -146,9 +143,12 @@ body {
   height: 45px;
   border: none;
   border-radius: 50%;
+
   background: #1e1e40;
   color: white;
+
   cursor: pointer;
+
   transition: 0.2s;
   font-size: 16px;
 }
@@ -162,20 +162,27 @@ body {
 #progress {
   width: 60%;
   max-width: 700px;
+
   appearance: none;
   height: 4px;
+
   background: #ccc;
   border-radius: 4px;
+
   outline: none;
 }
 
 #progress::-webkit-slider-thumb {
   appearance: none;
+
   width: 14px;
   height: 14px;
+
   background: #3a7bff;
+
   border-radius: 50%;
   box-shadow: 0 0 8px #3a7bff;
+
   cursor: pointer;
 }
 
@@ -185,14 +192,12 @@ body {
 
 .footer {
   height: 90px;
-
   background: #05050f;
 
   display: flex;
   align-items: center;
 
   padding: 0 30px;
-
   gap: 40px;
 
   border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -208,13 +213,11 @@ body {
   width: 100%;
 
   appearance: none;
-
   height: 4px;
 
   background: linear-gradient(90deg, #1e2a5a, #3a7bff);
 
   border-radius: 4px;
-
   outline: none;
 }
 
@@ -227,7 +230,6 @@ body {
   background: #3a7bff;
 
   border-radius: 50%;
-
   box-shadow: 0 0 8px #3a7bff;
 
   cursor: pointer;
@@ -239,13 +241,11 @@ body {
   margin-left: auto;
 
   border: none;
-
   background: #1e1e40;
 
   color: white;
 
   padding: 10px;
-
   border-radius: 6px;
 
   cursor: pointer;
@@ -258,7 +258,7 @@ body {
 }
 
 /* ========================= */
-/* EQUALIZER GRANDE */
+/* EQUALIZER */
 /* ========================= */
 
 .equalizer-container {
@@ -285,7 +285,6 @@ body {
 
   display: flex;
   gap: 10px;
-
   align-items: center;
 }
 
@@ -296,7 +295,6 @@ body {
   border: 1px solid #3b82f6;
 
   padding: 4px 8px;
-
   border-radius: 6px;
 }
 
@@ -304,7 +302,6 @@ body {
 
 .eq-bands {
   display: flex;
-
   gap: 18px;
 
   height: 160px;
@@ -317,7 +314,6 @@ body {
   flex-direction: column;
 
   align-items: center;
-
   gap: 8px;
 }
 
@@ -326,7 +322,6 @@ body {
   -webkit-appearance: slider-vertical;
 
   height: 130px;
-
   width: 6px;
 
   accent-color: #3b82f6;
@@ -334,42 +329,75 @@ body {
 
 .eq-band span {
   font-size: 11px;
-
   color: #aaa;
 }
 
-/* RESPONSIVO */
+/* ========================= */
+/* MOBILE */
+/* ========================= */
 
 @media (max-width: 900px) {
   .layout {
     flex-direction: column;
-    height: auto;
+    height: calc(100vh - 90px);
   }
+
+  /* SIDEBAR */
 
   .sidebar {
     width: 100%;
-    height: 200px;
+    height: 160px;
+    overflow-y: auto;
   }
 
+  /* PLAYER */
+
   .player {
-    padding: 20px;
+    padding: 15px;
+    gap: 15px;
   }
+
+  /* VISUALIZER */
 
   #music-bars {
     width: 95%;
+    max-width: 500px;
+    height: 90px;
   }
 
-  #progress {
-    width: 85%;
-  }
+  /* EQUALIZER */
 
   .equalizer-container {
     width: 95%;
+    padding: 15px;
   }
 
+  .eq-bands {
+    gap: 12px;
+    height: 130px;
+  }
+
+  .eq-band input {
+    height: 100px;
+  }
+
+  /* CONTROLES */
+
+  .controls button {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* PROGRESS */
+
+  #progress {
+    width: 90%;
+  }
+
+  /* FOOTER */
+
   .footer {
-    flex-wrap: wrap;
-    height: auto;
-    padding: 15px;
+    height: 80px;
+    padding: 0 15px;
   }
 }
