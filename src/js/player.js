@@ -3,7 +3,9 @@ class Player {
     this.audio = new Audio();
     this.index = 0;
 
-    this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    this.audioContext = new (
+      window.AudioContext || window.webkitAudioContext
+    )();
 
     this.source = this.audioContext.createMediaElementSource(this.audio);
 
@@ -21,7 +23,7 @@ class Player {
       this.createFilter(2000),
       this.createFilter(4000),
       this.createFilter(8000),
-      this.createFilter(16000)
+      this.createFilter(16000),
     ];
 
     this.analyser.connect(this.filters[0]);
@@ -30,9 +32,15 @@ class Player {
       this.filters[i].connect(this.filters[i + 1]);
     }
 
-    this.filters[this.filters.length - 1].connect(this.audioContext.destination);
+    this.filters[this.filters.length - 1].connect(
+      this.audioContext.destination,
+    );
+
+    /* QUANDO TERMINAR A MÚSICA */
 
     this.audio.addEventListener("ended", () => {
+      if (playlist.length === 0) return;
+
       this.next();
     });
   }

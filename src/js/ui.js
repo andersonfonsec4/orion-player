@@ -22,6 +22,8 @@ let dragIndex = null;
 fileInput.addEventListener("change", (e) => {
   const files = e.target.files;
 
+  const startIndex = playlist.length;
+
   for (let file of files) {
     playlist.push({
       title: file.name,
@@ -30,6 +32,14 @@ fileInput.addEventListener("change", (e) => {
   }
 
   render();
+
+  /* AUTOPLAY PRIMEIRA MÚSICA */
+
+  if (playlist.length > 0 && !player.audio.src) {
+    player.load(startIndex);
+    player.play();
+    updateTitle();
+  }
 
   fileInput.value = "";
 });
