@@ -7,7 +7,9 @@
     <title>BluePlayer</title>
 
     <link rel="stylesheet" href="src/css/style.css" />
+
     <link rel="manifest" href="manifest.json" />
+
     <link rel="icon" href="icon-192.png" />
 
     <meta name="theme-color" content="#0b0f1a" />
@@ -89,9 +91,13 @@
         </div>
 
         <input type="range" id="progress" value="0" />
+
+        <!-- BOTÃO PLAYLIST MOBILE -->
+
+        <button id="toggle-playlist">🎵 Playlist</button>
       </main>
 
-      <!-- PLAYLIST -->
+      <!-- SIDEBAR / PLAYLIST -->
 
       <aside class="sidebar">
         <h1 class="logo">BluePlayer</h1>
@@ -99,8 +105,6 @@
         <label for="file-input" id="upload-btn"> Adicionar músicas </label>
 
         <input type="file" id="file-input" multiple accept="audio/*" hidden />
-
-        <button id="toggle-playlist">Mostrar Playlist</button>
 
         <ul id="playlist"></ul>
       </aside>

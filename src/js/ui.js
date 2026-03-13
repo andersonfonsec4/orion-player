@@ -186,7 +186,6 @@ if (presetSelect) {
 
     eqSliders.forEach((slider, index) => {
       slider.value = preset[index];
-
       player.setEQ(index, preset[index]);
     });
   });
@@ -195,16 +194,15 @@ if (presetSelect) {
 /* TOGGLE PLAYLIST (MOBILE) */
 
 const toggleBtn = document.getElementById("toggle-playlist");
-const playlistElement = document.getElementById("playlist");
 
 if (toggleBtn) {
   toggleBtn.addEventListener("click", () => {
-    playlistElement.classList.toggle("open");
+    playlistUI.classList.toggle("open");
 
-    if (playlistElement.classList.contains("open")) {
-      toggleBtn.textContent = "Esconder Playlist";
+    if (playlistUI.classList.contains("open")) {
+      toggleBtn.textContent = "❌ Fechar Playlist";
     } else {
-      toggleBtn.textContent = "Mostrar Playlist";
+      toggleBtn.textContent = "🎵 Playlist";
     }
   });
 }

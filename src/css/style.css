@@ -430,3 +430,38 @@ body {
     overflow-y: auto;
   }
 }
+/* BOTÃO PLAYLIST */
+
+#toggle-playlist {
+  display: none;
+  background: #3a7bff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  color: white;
+  font-size: 14px;
+  margin-top: 12px;
+  cursor: pointer;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+  #toggle-playlist {
+    display: block;
+  }
+
+  .sidebar {
+    width: 100%;
+    padding: 20px;
+  }
+
+  #playlist {
+    display: none;
+    margin-top: 15px;
+  }
+
+  #playlist.open {
+    display: block;
+  }
+}
