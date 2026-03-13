@@ -84,27 +84,25 @@
 
         <h2 id="track-title">Selecione uma música</h2>
 
+        <input type="range" id="progress" value="0" />
+
         <div class="controls">
           <button id="prev">⏮</button>
           <button id="play">▶</button>
           <button id="next">⏭</button>
         </div>
-
-        <input type="range" id="progress" value="0" />
-
-        <!-- BOTÃO PLAYLIST MOBILE -->
-
-        <button id="toggle-playlist">🎵 Playlist</button>
       </main>
 
-      <!-- SIDEBAR / PLAYLIST -->
+      <!-- PLAYLIST -->
 
       <aside class="sidebar">
-        <h1 class="logo">BluePlayer</h1>
+        <div class="sidebar-header">
+          <h1 class="logo">BluePlayer</h1>
 
-        <label for="file-input" id="upload-btn"> Adicionar músicas </label>
+          <label for="file-input" id="upload-btn"> Adicionar músicas </label>
 
-        <input type="file" id="file-input" multiple accept="audio/*" hidden />
+          <input type="file" id="file-input" multiple accept="audio/*" hidden />
+        </div>
 
         <ul id="playlist"></ul>
       </aside>

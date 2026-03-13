@@ -196,23 +196,8 @@ if (presetSelect) {
 
     eqSliders.forEach((slider, index) => {
       slider.value = preset[index];
+
       player.setEQ(index, preset[index]);
     });
-  });
-}
-
-/* TOGGLE PLAYLIST (MOBILE) */
-
-const toggleBtn = document.getElementById("toggle-playlist");
-
-if (toggleBtn) {
-  toggleBtn.addEventListener("click", () => {
-    playlistUI.classList.toggle("open");
-
-    if (playlistUI.classList.contains("open")) {
-      toggleBtn.textContent = "❌ Fechar Playlist";
-    } else {
-      toggleBtn.textContent = "🎵 Playlist";
-    }
   });
 }
