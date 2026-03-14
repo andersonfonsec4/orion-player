@@ -1,0 +1,165 @@
+@media (max-width: 768px) {
+  /* LAYOUT */
+
+  .layout {
+    flex-direction: column;
+    height: auto;
+    overflow: visible;
+  }
+
+  /* PLAYER */
+
+  .player {
+    width: 100%;
+    flex: 1;
+    padding: 16px;
+    gap: 14px;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: visible;
+  }
+
+  /* ESCONDER VISUALIZER */
+
+  #music-bars {
+    display: none;
+  }
+
+  /* TITULO */
+
+  #track-title {
+    font-size: 18px;
+  }
+
+  /* PROGRESS */
+
+  #progress {
+    width: 100%;
+  }
+
+  /* CONTROLES */
+
+  .controls {
+    gap: 22px;
+  }
+
+  .controls button {
+    width: 60px;
+    height: 60px;
+    font-size: 20px;
+  }
+
+  /* EQUALIZER */
+
+  .equalizer-container {
+    width: 100%;
+    padding: 14px;
+  }
+
+  /* BANDS */
+
+  .eq-bands {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    height: auto;
+  }
+
+  .eq-band input {
+    height: 110px;
+  }
+
+  /* PLAYLIST (PAINEL DESLIZANTE) */
+
+  .sidebar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 60vh;
+
+    background: #05050f;
+
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+
+    transform: translateY(75%);
+    transition: transform 0.3s ease;
+
+    z-index: 1000;
+
+    padding: 12px;
+
+    /* remove comportamento desktop */
+
+    border-left: none;
+  }
+
+  /* quando aberta */
+
+  .sidebar.open {
+    transform: translateY(0);
+  }
+
+  /* BARRA DE ARRASTE */
+
+  .drag-bar {
+    width: 40px;
+    height: 4px;
+    background: #555;
+    border-radius: 10px;
+    margin: 8px auto 12px auto;
+  }
+
+  /* HEADER PLAYLIST */
+
+  .sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* PLAYLIST */
+
+  #playlist {
+    overflow-y: auto;
+    height: calc(60vh - 90px);
+    padding: 0;
+  }
+
+  /* ITENS */
+
+  #playlist li {
+    padding: 14px 10px;
+    font-size: 15px;
+  }
+
+  /* FOOTER */
+
+  .footer {
+    flex-direction: column;
+    align-items: stretch;
+    height: auto;
+    gap: 10px;
+    padding: 10px 16px;
+
+    padding-bottom: calc(10px + env(safe-area-inset-bottom));
+  }
+
+  /* VOLUME */
+
+  .volume-area {
+    width: 100%;
+  }
+
+  #volume {
+    width: 100%;
+  }
+
+  /* FULLSCREEN */
+
+  #fullscreen {
+    align-self: flex-end;
+  }
+}
