@@ -1,79 +1,122 @@
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px){
 
-/* RESET FORTE DO LAYOUT */
+/* LAYOUT */
 
 .layout{
-display:flex !important;
-flex-direction:column !important;
-height:100dvh !important;
-overflow:hidden !important;
+display:flex;
+flex-direction:column;
+height:100dvh;
+overflow:hidden;
 }
 
 /* PLAYER */
 
 .player{
-width:100% !important;
-flex:1 !important;
-padding:16px !important;
-border-radius:0 !important;
-box-shadow:none !important;
-overflow-y:auto !important;
+flex:1;
+width:100%;
+padding:16px;
+gap:18px;
+border-radius:0;
+box-shadow:none;
+overflow-y:auto;
 }
 
-/* ESCONDER VISUALIZER */
+/* VISUALIZER OFF */
 
 #music-bars{
-display:none !important;
+display:none;
 }
 
-/* CONTROLES */
+/* 🎧 EQUALIZER (COMPACTO + SCROLL) */
+
+.equalizer-container{
+width:100%;
+padding:12px;
+}
+
+.eq-bands{
+display:flex;
+overflow-x:auto;
+gap:12px;
+padding-bottom:8px;
+}
+
+.eq-band{
+min-width:40px;
+flex-shrink:0;
+}
+
+.eq-band input{
+height:90px;
+}
+
+.eq-bands::-webkit-scrollbar{
+display:none;
+}
+
+/* TITULO */
+
+#track-title{
+font-size:18px;
+text-align:center;
+}
+
+/* PROGRESS */
+
+#progress{
+width:100%;
+}
+
+/* CONTROLES (ESTILO SPOTIFY) */
+
+.controls{
+display:flex;
+justify-content:center;
+gap:25px;
+margin-top:10px;
+}
 
 .controls button{
 width:65px;
 height:65px;
+font-size:20px;
+border-radius:50%;
 }
 
-/* EQUALIZER */
-
-.eq-bands{
-flex-wrap:wrap;
-justify-content:center;
-height:auto;
-}
-
-/* 🎧 PLAYLIST DRAWER */
+/* PLAYLIST (BOTTOM SHEET) */
 
 .sidebar{
-position:fixed !important;
+position:fixed;
 bottom:0;
 left:0;
+
 width:100%;
-height:75vh;
+height:70vh;
 
 background:#05050f;
 
 border-radius:20px 20px 0 0;
 
-transform:translateY(85%);
+transform:translateY(88%);
 transition:transform .3s ease;
 
 z-index:9999;
 
+padding:12px;
 display:flex;
 flex-direction:column;
-padding:12px;
 }
 
-/* aberta */
+/* ABERTA */
 
 .sidebar.open{
 transform:translateY(0);
 }
 
-/* barra */
+/* DRAG BAR */
 
 .drag-bar{
-display:block !important;
+display:block;
 width:50px;
 height:5px;
 background:#666;
@@ -81,18 +124,35 @@ border-radius:10px;
 margin:10px auto;
 }
 
-/* playlist */
+/* PLAYLIST */
 
 #playlist{
 flex:1;
 overflow-y:auto;
 }
 
-/* footer */
+/* FOOTER */
 
 .footer{
 flex-direction:column;
+gap:10px;
 padding:12px;
+}
+
+/* VOLUME */
+
+.volume-area{
+width:100%;
+}
+
+#volume{
+width:100%;
+}
+
+/* FULLSCREEN */
+
+#fullscreen{
+align-self:flex-end;
 }
 
 }
