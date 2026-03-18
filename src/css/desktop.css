@@ -123,9 +123,13 @@ body {
   gap: 18px;
   padding: 20px;
   overflow: hidden;
+
   background: radial-gradient(circle at top, #0e1626, #050a14);
-  border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+
+  /* CORREÇÃO AQUI */
+  border-radius: 0 20px 20px 0;
+
+  box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.6);
 }
 
 /* VISUALIZER */
