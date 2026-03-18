@@ -46,12 +46,169 @@
 
   /* BOTÃO (🔥 AGORA NÃO QUEBRA MAIS) */
 
-  #upload-btn {
-    width: 100%; /* 🔥 ocupa toda largura */
-    text-align: center;
-    padding: 8px;
-    font-size: 14px;
-    white-space: nowrap;
+  @media screen and (max-width: 768px) {
+    /* LAYOUT BASE */
+
+    .layout {
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      overflow: visible;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    /* SIDEBAR */
+
+    .sidebar {
+      position: relative;
+      width: 100%;
+      height: auto;
+      transform: none;
+      border-radius: 0;
+      padding: 12px;
+      border: none;
+    }
+
+    /* ESCONDE DRAG */
+
+    .drag-bar {
+      display: none;
+    }
+
+    /* HEADER (🔥 AGORA VERTICAL) */
+
+    .sidebar-header {
+      display: flex;
+      flex-direction: column; /* 🔥 ESSENCIAL */
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    /* LOGO */
+
+    .logo {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    /* BOTÃO (🔥 AGORA NÃO QUEBRA MAIS) */
+
+    #upload-btn {
+      display: block;
+
+      width: 90%; /* 🔥 não ocupa 100%, fica bonito */
+      margin: 0 auto; /* 🔥 centraliza de verdade */
+
+      text-align: center;
+
+      padding: 10px;
+      font-size: 14px;
+
+      border-radius: 25px; /* 🔥 mais estilo app */
+
+      white-space: nowrap;
+    }
+    /* PLAYLIST */
+
+    #playlist {
+      max-height: 140px;
+      overflow-y: auto;
+      margin-top: 8px;
+    }
+
+    /* PLAYER */
+
+    .player {
+      width: 100%;
+      padding: 12px;
+      gap: 10px;
+      border-radius: 0;
+      box-shadow: none;
+      box-sizing: border-box;
+    }
+
+    /* VISUALIZER */
+
+    #music-bars {
+      display: block;
+      width: 100%;
+      height: 90px;
+      border-radius: 12px;
+      margin-bottom: 8px;
+    }
+
+    /* EQUALIZER */
+
+    .equalizer-container {
+      width: 100%;
+      padding: 8px;
+    }
+
+    .eq-bands {
+      display: flex;
+      overflow-x: auto;
+      gap: 8px;
+    }
+
+    .eq-band {
+      min-width: 30px;
+    }
+
+    .eq-band input {
+      height: 70px;
+    }
+
+    /* TITULO */
+
+    #track-title {
+      font-size: 16px;
+      text-align: center;
+      margin: 4px 0;
+    }
+
+    /* PROGRESS */
+
+    #progress {
+      width: 100%;
+    }
+
+    /* CONTROLES */
+
+    .controls {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+    }
+
+    .controls button {
+      width: 52px;
+      height: 52px;
+    }
+
+    /* FOOTER */
+
+    .footer {
+      flex-direction: column;
+      padding: 10px;
+      gap: 8px;
+    }
+
+    /* VOLUME */
+
+    .volume-area {
+      width: 100%;
+    }
+
+    #volume {
+      width: 100%;
+    }
+
+    /* REMOVE FULLSCREEN */
+
+    #fullscreen {
+      display: none !important;
+    }
   }
 
   /* PLAYLIST */
