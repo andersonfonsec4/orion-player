@@ -28,14 +28,13 @@
     display: none;
   }
 
-  /* HEADER (🔥 LIMPO E FUNCIONAL) */
+  /* HEADER (🔥 AGORA VERTICAL) */
 
   .sidebar-header {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column; /* 🔥 ESSENCIAL */
+    align-items: flex-start;
     gap: 8px;
-    flex-wrap: wrap;
   }
 
   /* LOGO */
@@ -43,16 +42,15 @@
   .logo {
     font-size: 20px;
     font-weight: 600;
-    flex: 1 1 auto;
-    min-width: 0;
   }
 
-  /* BOTÃO */
+  /* BOTÃO (🔥 AGORA NÃO QUEBRA MAIS) */
 
   #upload-btn {
-    flex: 0 0 auto;
-    padding: 6px 10px;
-    font-size: 13px;
+    width: 100%; /* 🔥 ocupa toda largura */
+    text-align: center;
+    padding: 8px;
+    font-size: 14px;
     white-space: nowrap;
   }
 
