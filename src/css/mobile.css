@@ -6,6 +6,8 @@
     flex-direction: column;
     height: auto;
     overflow: visible;
+    width: 100%;
+    max-width: 100%;
   }
 
   /* SIDEBAR VIRA BLOCO NORMAL (PLAYLIST VISÍVEL) */
@@ -16,28 +18,49 @@
     height: auto;
     transform: none;
     border-radius: 0;
-    padding: 12px; /* ↓ menor */
+    padding: 12px;
     border: none;
   }
 
-  /* ESCONDE DRAG (não usamos mais gaveta) */
+  /* ESCONDE DRAG */
 
   .drag-bar {
     display: none;
   }
 
-  /* HEADER */
+  /* HEADER (🔥 AJUSTADO) */
 
   .sidebar-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 10px;
+    flex-wrap: wrap; /* 🔥 resolve quebra */
+  }
+
+  /* LOGO */
+
+  .logo {
+    font-size: 20px;
+    font-weight: 600;
+    flex: 1;
+  }
+
+  /* BOTÃO (🔥 CORREÇÃO PRINCIPAL) */
+
+  #upload-btn {
+    max-width: 55%;
+    padding: 8px 12px;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   /* PLAYLIST */
 
   #playlist {
-    max-height: 140px; /* ↓ menor */
+    max-height: 140px;
     overflow-y: auto;
     margin-top: 8px;
   }
@@ -46,18 +69,19 @@
 
   .player {
     width: 100%;
-    padding: 12px; /* ↓ menor */
-    gap: 10px; /* ↓ menor */
+    padding: 12px;
+    gap: 10px;
     border-radius: 0;
     box-shadow: none;
+    box-sizing: border-box;
   }
 
-  /* VISUALIZER COMO CAPA */
+  /* VISUALIZER */
 
   #music-bars {
     display: block;
     width: 100%;
-    height: 90px; /* ↓ menor */
+    height: 90px;
     border-radius: 12px;
     margin-bottom: 8px;
   }
@@ -76,11 +100,11 @@
   }
 
   .eq-band {
-    min-width: 30px; /* ↓ menor */
+    min-width: 30px;
   }
 
   .eq-band input {
-    height: 70px; /* ↓ menor */
+    height: 70px;
   }
 
   /* TITULO */
@@ -106,7 +130,7 @@
   }
 
   .controls button {
-    width: 52px; /* ↓ menor */
+    width: 52px;
     height: 52px;
   }
 
