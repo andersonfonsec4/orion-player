@@ -4,7 +4,9 @@ body {
   background: #0b0f1a;
   color: white;
   overflow-x: hidden;
-  height: 100dvh;
+
+  /* 🔥 CORREÇÃO */
+  min-height: 100dvh;
 }
 
 /* LAYOUT */
@@ -12,7 +14,10 @@ body {
 .layout {
   display: flex;
   flex-direction: row;
-  height: calc(100dvh - 90px);
+
+  /* 🔥 CORREÇÃO */
+  min-height: calc(100dvh - 90px);
+
   overflow: hidden;
 }
 
@@ -122,11 +127,12 @@ body {
   align-items: center;
   gap: 18px;
   padding: 20px;
-  overflow: hidden;
+
+  /* 🔥 CORREÇÃO */
+  overflow: auto;
 
   background: radial-gradient(circle at top, #0e1626, #050a14);
 
-  /* CORREÇÃO AQUI */
   border-radius: 0 20px 20px 0;
 
   box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.6);
