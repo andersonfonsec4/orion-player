@@ -10,7 +10,7 @@
     max-width: 100%;
   }
 
-  /* SIDEBAR VIRA BLOCO NORMAL (PLAYLIST VISÍVEL) */
+  /* SIDEBAR */
 
   .sidebar {
     position: relative;
@@ -28,30 +28,33 @@
     display: none;
   }
 
-  /* HEADER (🔥 AJUSTADO) */
+  /* HEADER (🔥 CORRIGIDO DE VERDADE) */
 
   .sidebar-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 10px;
-    flex-wrap: wrap; /* 🔥 resolve quebra */
+    justify-content: space-between;
+    gap: 8px;
   }
 
-  /* LOGO */
+  /* LOGO (🔥 ESSENCIAL) */
 
   .logo {
     font-size: 20px;
     font-weight: 600;
     flex: 1;
+    min-width: 0; /* 🔥 evita estourar layout */
   }
 
-  /* BOTÃO (🔥 CORREÇÃO PRINCIPAL) */
+  /* BOTÃO (🔥 AGORA NÃO SAI MAIS) */
 
   #upload-btn {
-    max-width: 55%;
-    padding: 8px 12px;
-    font-size: 14px;
+    flex-shrink: 0;
+    max-width: 45%;
+
+    padding: 6px 10px;
+    font-size: 13px;
+
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -152,9 +155,9 @@
     width: 100%;
   }
 
-  /* FULLSCREEN */
+  /* ❌ REMOVE FULLSCREEN NO MOBILE (DEFINITIVO) */
 
   #fullscreen {
-    align-self: flex-end;
+    display: none !important;
   }
 }
