@@ -28,36 +28,32 @@
     display: none;
   }
 
-  /* HEADER (🔥 CORRIGIDO DE VERDADE) */
+  /* HEADER (🔥 LIMPO E FUNCIONAL) */
 
   .sidebar-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 8px;
+    flex-wrap: wrap;
   }
 
-  /* LOGO (🔥 ESSENCIAL) */
+  /* LOGO */
 
   .logo {
     font-size: 20px;
     font-weight: 600;
-    flex: 1;
-    min-width: 0; /* 🔥 evita estourar layout */
+    flex: 1 1 auto;
+    min-width: 0;
   }
 
-  /* BOTÃO (🔥 AGORA NÃO SAI MAIS) */
+  /* BOTÃO */
 
   #upload-btn {
-    flex-shrink: 0;
-    max-width: 45%;
-
+    flex: 0 0 auto;
     padding: 6px 10px;
     font-size: 13px;
-
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 
   /* PLAYLIST */
@@ -155,7 +151,7 @@
     width: 100%;
   }
 
-  /* ❌ REMOVE FULLSCREEN NO MOBILE (DEFINITIVO) */
+  /* REMOVE FULLSCREEN */
 
   #fullscreen {
     display: none !important;
