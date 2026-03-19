@@ -13,7 +13,7 @@ body {
 
 @media screen and (max-width: 768px) {
 
-  /* 🔥 CORREÇÃO CRÍTICA (REMOVE CONFLITO DO DESKTOP) */
+  /* 🔥 CORREÇÃO CRÍTICA */
 
   .layout {
     display: flex;
@@ -69,15 +69,15 @@ body {
     padding-right: 4px;
   }
 
-  /* 🔥 PLAYER CORRIGIDO */
+  /* PLAYER */
 
   .player {
     width: 100%;
     padding: 12px;
     gap: 10px;
 
-    overflow-y: auto; /* 🔥 ESSENCIAL */
-    padding-bottom: 180px; /* 🔥 garante espaço real */
+    overflow-y: auto;
+    padding-bottom: 180px;
 
     display: flex;
     flex-direction: column;
@@ -92,7 +92,7 @@ body {
     border-radius: 12px;
   }
 
-  /* EQUALIZER */
+  /* 🔥 EQUALIZER CORRIGIDO (SEM SCROLL) */
 
   .equalizer-container {
     width: 100%;
@@ -101,30 +101,30 @@ body {
 
   .eq-bands {
     display: flex;
-    overflow-x: auto;
-    gap: 12px;
-    padding: 0 12px;
-    scroll-snap-type: x mandatory;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    gap: 6px;
+    width: 100%;
+
+    overflow: hidden; /* 🔥 remove rolagem */
   }
 
   .eq-band {
-    min-width: 42px;
+    flex: 1; /* 🔥 cada barra ocupa espaço igual */
     display: flex;
     flex-direction: column;
     align-items: center;
-    scroll-snap-align: center;
   }
 
   .eq-band input {
     height: 110px;
-    width: 8px;
+    width: 6px;
     cursor: pointer;
-    display: block;
-    margin: 0 auto;
   }
 
   .eq-band span {
-    font-size: 10px;
+    font-size: 9px;
     color: #aaa;
   }
 
@@ -165,7 +165,7 @@ body {
     box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
   }
 
-  /* 🔥 FOOTER CORRIGIDO */
+  /* FOOTER */
 
   .footer {
     position: fixed;
@@ -177,12 +177,12 @@ body {
     padding: 10px;
     gap: 8px;
 
-    background: rgba(5, 5, 15, 0.95); /* 🔥 mais sólido */
+    background: rgba(5, 5, 15, 0.95);
     backdrop-filter: blur(12px);
 
     border-top: 1px solid rgba(255, 255, 255, 0.08);
 
-    z-index: 999; /* 🔥 garante sobreposição correta */
+    z-index: 999;
 
     padding-bottom: calc(12px + env(safe-area-inset-bottom));
   }
