@@ -4,8 +4,6 @@ body {
   background: #0b0f1a;
   color: white;
   overflow-x: hidden;
-
-  /* 🔥 CORREÇÃO */
   min-height: 100dvh;
 }
 
@@ -14,10 +12,7 @@ body {
 .layout {
   display: flex;
   flex-direction: row;
-
-  /* 🔥 CORREÇÃO */
   min-height: calc(100dvh - 90px);
-
   overflow: hidden;
 }
 
@@ -29,12 +24,8 @@ body {
   padding: 20px;
   display: flex;
   flex-direction: column;
-
-  border-left: none;
   border-right: 1px solid rgba(255, 255, 255, 0.05);
 }
-
-/* esconder barra de arraste no desktop */
 
 .drag-bar {
   display: none !important;
@@ -127,14 +118,9 @@ body {
   align-items: center;
   gap: 18px;
   padding: 20px;
-
-  /* 🔥 CORREÇÃO */
   overflow: auto;
-
   background: radial-gradient(circle at top, #0e1626, #050a14);
-
   border-radius: 0 20px 20px 0;
-
   box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.6);
 }
 
@@ -289,20 +275,25 @@ body {
   border-radius: 6px;
 }
 
-/* BANDS */
+/* 🔥 CORREÇÃO FINAL */
 
 .eq-bands {
   display: flex;
-  gap: 18px;
-  height: 160px;
+  justify-content: center;
   align-items: flex-end;
+  gap: 18px;
+  width: 100%;
+  max-width: 600px;
+  height: 160px;
 }
 
 .eq-band {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-end;
   gap: 8px;
+  width: 40px;
 }
 
 .eq-band input {
@@ -311,6 +302,13 @@ body {
   height: 130px;
   width: 6px;
   accent-color: #3b82f6;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.eq-band input:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
 }
 
 .eq-band span {

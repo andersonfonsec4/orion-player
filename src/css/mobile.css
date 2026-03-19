@@ -82,25 +82,39 @@ body {
     border-radius: 12px;
   }
 
-  /* EQUALIZER */
+  /* 🔥 EQUALIZER MELHORADO */
 
   .equalizer-container {
     width: 100%;
-    padding: 8px;
+    padding: 12px;
   }
 
   .eq-bands {
     display: flex;
     overflow-x: auto;
-    gap: 8px;
+    gap: 12px;
+
+    padding: 0 10px; /* respiro lateral */
+    scroll-snap-type: x mandatory;
   }
 
   .eq-band {
-    min-width: 30px;
+    min-width: 40px; /* melhor toque */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    scroll-snap-align: center;
   }
 
   .eq-band input {
-    height: 70px;
+    height: 110px; /* mais confortável */
+    width: 8px;
+    cursor: pointer;
+  }
+
+  .eq-band span {
+    font-size: 10px;
+    color: #aaa;
   }
 
   /* TITULO */
