@@ -25,8 +25,6 @@ body {
     padding: 12px;
   }
 
-  /* REMOVE DRAG */
-
   .drag-bar {
     display: none;
   }
@@ -39,14 +37,12 @@ body {
     gap: 10px;
   }
 
-  /* LOGO */
-
   .logo {
     font-size: 20px;
     font-weight: 600;
   }
 
-  /* BOTÃO CENTRALIZADO */
+  /* BOTÃO */
 
   #upload-btn {
     display: block;
@@ -64,6 +60,7 @@ body {
     max-height: 140px;
     overflow-y: auto;
     margin-top: 8px;
+    padding-right: 4px;
   }
 
   /* PLAYER */
@@ -71,7 +68,9 @@ body {
   .player {
     width: 100%;
     padding: 12px;
+    padding-bottom: 30px; /* 🔥 RESPIRO IGUAL DESKTOP */
     gap: 10px;
+    overflow: hidden;
   }
 
   /* VISUALIZER */
@@ -82,7 +81,7 @@ body {
     border-radius: 12px;
   }
 
-  /* 🔥 EQUALIZER MELHORADO */
+  /* EQUALIZER */
 
   .equalizer-container {
     width: 100%;
@@ -93,13 +92,12 @@ body {
     display: flex;
     overflow-x: auto;
     gap: 12px;
-
-    padding: 0 10px; /* respiro lateral */
+    padding: 0 12px; /* 🔥 mais respiro */
     scroll-snap-type: x mandatory;
   }
 
   .eq-band {
-    min-width: 40px; /* melhor toque */
+    min-width: 42px; /* 🔥 levemente maior */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -107,9 +105,11 @@ body {
   }
 
   .eq-band input {
-    height: 110px; /* mais confortável */
+    height: 110px;
     width: 8px;
     cursor: pointer;
+    display: block;
+    margin: 0 auto;
   }
 
   .eq-band span {
@@ -136,25 +136,40 @@ body {
     display: flex;
     justify-content: center;
     gap: 18px;
+    margin-bottom: 10px; /* 🔥 respiro */
   }
 
   .controls button {
     width: 52px;
     height: 52px;
+
+    background: rgba(30, 30, 64, 0.6); /* 🔥 glass */
+    backdrop-filter: blur(6px);
+
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
   }
 
-  /* FOOTER */
+  /* FOOTER PREMIUM */
 
   .footer {
     flex-direction: column;
     padding: 10px;
     gap: 8px;
+
+    background: rgba(5, 5, 15, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+    padding-bottom: calc(10px + env(safe-area-inset-bottom)); /* 🔥 notch */
   }
 
   /* VOLUME */
 
   #volume {
     width: 100%;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
   }
 
   /* REMOVE FULLSCREEN */
