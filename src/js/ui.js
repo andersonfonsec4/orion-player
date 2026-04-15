@@ -2,14 +2,12 @@ const playlist = [];
 
 const playlistUI = document.getElementById("playlist");
 
-const uploadBtn = document.getElementById("upload-btn");
 const fileInput = document.getElementById("file-input");
 
 const playBtn = document.getElementById("play");
 const nextBtn = document.getElementById("next");
 const prevBtn = document.getElementById("prev");
 
-const progress = document.getElementById("progress");
 const volume = document.getElementById("volume");
 const fullscreenBtn = document.getElementById("fullscreen");
 
@@ -21,7 +19,6 @@ let dragIndex = null;
 
 fileInput.addEventListener("change", (e) => {
   const files = e.target.files;
-
   const startIndex = playlist.length;
 
   for (let file of files) {
@@ -32,8 +29,6 @@ fileInput.addEventListener("change", (e) => {
   }
 
   render();
-
-  /* AUTOPLAY PRIMEIRA MÚSICA */
 
   if (playlist.length > 0 && !player.audio.src) {
     player.load(startIndex);
@@ -78,6 +73,8 @@ function render() {
       render();
     };
 
+    /* DRAG & DROP */
+
     li.addEventListener("dragstart", () => {
       dragIndex = i;
     });
@@ -88,9 +85,7 @@ function render() {
 
     li.addEventListener("drop", () => {
       const item = playlist.splice(dragIndex, 1)[0];
-
       playlist.splice(i, 0, item);
-
       render();
     });
 
@@ -124,28 +119,12 @@ playBtn.onclick = () => {
 
 nextBtn.onclick = () => {
   if (!playlist.length) return;
-
   player.next();
 };
 
 prevBtn.onclick = () => {
   if (!playlist.length) return;
-
   player.prev();
-};
-
-/* PROGRESS */
-
-player.audio.ontimeupdate = () => {
-  if (player.audio.duration) {
-    progress.value = (player.audio.currentTime / player.audio.duration) * 100;
-  }
-};
-
-progress.oninput = () => {
-  if (player.audio.duration) {
-    player.audio.currentTime = (progress.value / 100) * player.audio.duration;
-  }
 };
 
 /* VOLUME */
@@ -180,25 +159,15 @@ const presetSelect = document.getElementById("preset");
 
 const presets = {
   flat: [0, 0, 0, 0, 0, 0, 0, 0, 0],
-
   pop: [-1, 2, 4, 4, 2, 0, -1, -1, -1],
-
   rock: [4, 3, 2, 1, 0, 1, 2, 3, 4],
-
   dance: [6, 5, 4, 2, 0, -2, -2, -2, -2],
-
   jazz: [2, 1, 0, 1, 2, 2, 1, 0, 0],
-
   classical: [0, 0, 0, 0, 0, 0, 1, 2, 3],
-
   bass: [6, 5, 3, 1, 0, -1, -2, -2, -3],
-
   treble: [-2, -2, -1, 0, 1, 3, 5, 6, 6],
-
   vocal: [-2, -1, 0, 2, 4, 4, 3, 2, 1],
-
   electronic: [5, 4, 3, 1, 0, 1, 3, 4, 5],
-
   hiphop: [6, 5, 4, 2, 0, -1, -2, -2, -3],
 };
 
@@ -210,13 +179,12 @@ if (presetSelect) {
 
     eqSliders.forEach((slider, index) => {
       slider.value = preset[index];
-
       player.setEQ(index, preset[index]);
     });
   });
 }
 
-/* PLAYLIST DESLIZANTE MOBILE */
+/* MOBILE SIDEBAR */
 
 const sidebar = document.querySelector(".sidebar");
 const dragBar = document.querySelector(".drag-bar");
