@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>BluePlayer</title>
+    <title>Orion Player</title>
 
     <link rel="stylesheet" href="src/css/desktop.css" />
     <link rel="stylesheet" href="src/css/mobile.css" />
@@ -16,35 +16,30 @@
 
   <body>
     <div class="layout">
-      <!-- PLAYLIST -->
-
       <aside class="sidebar">
         <div class="drag-bar"></div>
 
         <div class="sidebar-header">
-          <!-- 🔥 LOGO MELHORADO -->
-          <h1 class="logo"><span style="color: #3a7bff">Blue</span>Player</h1>
+          <h1 class="logo">Orion<span>Player</span></h1>
 
-          <!-- 🔥 BOTÃO AJUSTADO -->
-          <label for="file-input" id="upload-btn" title="Adicionar músicas">
-            + Músicas
-          </label>
-
+          <label for="file-input" id="upload-btn">+ Músicas</label>
           <input type="file" id="file-input" multiple accept="audio/*" hidden />
         </div>
 
         <ul id="playlist"></ul>
       </aside>
 
-      <!-- PLAYER -->
-
       <main class="player">
         <canvas id="music-bars"></canvas>
+
+        <!-- 🎵 CAPA -->
+        <div class="cover-container">
+          <img id="cover" src="" />
+        </div>
 
         <div class="equalizer-container">
           <div class="eq-header">
             <label>Preset:</label>
-
             <select id="preset">
               <option value="flat">Flat</option>
               <option value="pop">Pop</option>
@@ -60,55 +55,54 @@
             </select>
           </div>
 
+          <!-- ✅ CORRIGIDO -->
           <div class="eq-bands">
             <div class="eq-band">
-              <input type="range" min="-10" max="10" value="0" />
-              <span>60Hz</span>
+              <input type="range" min="-10" max="10" value="0" /><span
+                >60Hz</span
+              >
             </div>
-
             <div class="eq-band">
-              <input type="range" min="-10" max="10" value="0" />
-              <span>120Hz</span>
+              <input type="range" min="-10" max="10" value="0" /><span
+                >120Hz</span
+              >
             </div>
-
             <div class="eq-band">
-              <input type="range" min="-10" max="10" value="0" />
-              <span>250Hz</span>
+              <input type="range" min="-10" max="10" value="0" /><span
+                >250Hz</span
+              >
             </div>
-
             <div class="eq-band">
-              <input type="range" min="-10" max="10" value="0" />
-              <span>500Hz</span>
+              <input type="range" min="-10" max="10" value="0" /><span
+                >500Hz</span
+              >
             </div>
-
             <div class="eq-band">
-              <input type="range" min="-10" max="10" value="0" />
-              <span>1k</span>
+              <input type="range" min="-10" max="10" value="0" /><span>1k</span>
             </div>
-
             <div class="eq-band">
-              <input type="range" min="-10" max="10" value="0" />
-              <span>2k</span>
+              <input type="range" min="-10" max="10" value="0" /><span>2k</span>
             </div>
-
             <div class="eq-band">
-              <input type="range" min="-10" max="10" value="0" />
-              <span>4k</span>
+              <input type="range" min="-10" max="10" value="0" /><span>4k</span>
             </div>
-
             <div class="eq-band">
-              <input type="range" min="-10" max="10" value="0" />
-              <span>8k</span>
+              <input type="range" min="-10" max="10" value="0" /><span>8k</span>
             </div>
-
             <div class="eq-band">
-              <input type="range" min="-10" max="10" value="0" />
-              <span>16k</span>
+              <input type="range" min="-10" max="10" value="0" /><span
+                >16k</span
+              >
             </div>
           </div>
         </div>
 
         <h2 id="track-title">Selecione uma música</h2>
+
+        <div class="time-info">
+          <span id="current-time">0:00</span>
+          <span id="duration">0:00</span>
+        </div>
 
         <input type="range" id="progress" value="0" />
 
@@ -123,7 +117,6 @@
     <footer class="footer">
       <div class="volume-area">
         <label>Volume</label>
-
         <input type="range" id="volume" min="0" max="1" step="0.01" value="1" />
       </div>
 
@@ -133,11 +126,5 @@
     <script src="src/js/player.js"></script>
     <script src="src/js/ui.js"></script>
     <script src="src/js/visualizer.js"></script>
-
-    <script>
-      if ("serviceWorker" in navigator) {
-        navigator.serviceWorker.register("./sw.js");
-      }
-    </script>
   </body>
 </html>
