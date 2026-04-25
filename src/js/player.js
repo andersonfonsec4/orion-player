@@ -21,6 +21,11 @@ class Player {
     this.audio.addEventListener("pause", () => {
       this.playBtn.textContent = "▶";
     });
+
+    // 🔥 NOVO: AUTO NEXT
+    this.audio.addEventListener("ended", () => {
+      this.next();
+    });
   }
 
   load(index) {
@@ -44,12 +49,16 @@ class Player {
   }
 
   next() {
+    if (!playlist.length) return;
+
     this.index = (this.index + 1) % playlist.length;
     this.load(this.index);
     this.play();
   }
 
   prev() {
+    if (!playlist.length) return;
+
     this.index = (this.index - 1 + playlist.length) % playlist.length;
     this.load(this.index);
     this.play();
