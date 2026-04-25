@@ -1,4 +1,4 @@
-/* 🔥 ESSENCIAL - EVITA QUEBRAS */
+/* 🔥 ESSENCIAL */
 * {
   box-sizing: border-box;
 }
@@ -13,7 +13,7 @@ body {
 
 @media screen and (max-width: 768px) {
 
-  /* 🔥 CORREÇÃO CRÍTICA */
+  /* LAYOUT */
 
   .layout {
     display: flex;
@@ -28,7 +28,7 @@ body {
 
   .sidebar {
     width: 100%;
-    padding: 12px;
+    padding: 14px;
   }
 
   .drag-bar {
@@ -40,7 +40,7 @@ body {
   .sidebar-header {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
   }
 
   .logo {
@@ -55,7 +55,7 @@ body {
     width: 90%;
     margin: 0 auto;
     text-align: center;
-    padding: 10px;
+    padding: 12px;
     font-size: 14px;
     border-radius: 25px;
   }
@@ -65,7 +65,7 @@ body {
   #playlist {
     max-height: 140px;
     overflow-y: auto;
-    margin-top: 8px;
+    margin-top: 10px;
     padding-right: 4px;
   }
 
@@ -73,8 +73,8 @@ body {
 
   .player {
     width: 100%;
-    padding: 12px;
-    gap: 10px;
+    padding: 14px;
+    gap: 14px;
 
     overflow-y: auto;
     padding-bottom: 180px;
@@ -88,15 +88,23 @@ body {
 
   #music-bars {
     width: 100%;
-    height: 90px;
+    height: 80px;
     border-radius: 12px;
+    opacity: 0.6;
   }
 
-  /* 🔥 EQUALIZER CORRIGIDO (SEM SCROLL) */
+  /* CAPA */
+
+  .cover-container {
+    width: 180px;
+    height: 180px;
+  }
+
+  /* EQUALIZER */
 
   .equalizer-container {
     width: 100%;
-    padding: 12px;
+    padding: 14px;
   }
 
   .eq-bands {
@@ -104,14 +112,14 @@ body {
     justify-content: space-between;
     align-items: flex-end;
 
-    gap: 6px;
+    gap: 8px;
     width: 100%;
 
-    overflow: hidden; /* 🔥 remove rolagem */
+    overflow: hidden;
   }
 
   .eq-band {
-    flex: 1; /* 🔥 cada barra ocupa espaço igual */
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -124,7 +132,7 @@ body {
   }
 
   .eq-band span {
-    font-size: 9px;
+    font-size: 10px;
     color: #aaa;
   }
 
@@ -133,6 +141,14 @@ body {
   #track-title {
     font-size: 16px;
     text-align: center;
+    padding: 0 10px;
+  }
+
+  /* TEMPO */
+
+  .time-info {
+    font-size: 11px;
+    opacity: 0.8;
   }
 
   /* PROGRESS */
@@ -146,13 +162,13 @@ body {
   .controls {
     display: flex;
     justify-content: center;
-    gap: 14px;
-    margin-bottom: 20px;
+    gap: 16px;
+    margin-bottom: 25px;
   }
 
   .controls button {
-    width: 44px;
-    height: 44px;
+    width: 46px;
+    height: 46px;
     font-size: 14px;
 
     display: flex;
@@ -162,7 +178,12 @@ body {
     background: rgba(30, 30, 64, 0.6);
     backdrop-filter: blur(6px);
 
-    box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
+    box-shadow: 0 0 12px rgba(139, 92, 246, 0.3);
+  }
+
+  #play {
+    width: 60px;
+    height: 60px;
   }
 
   /* FOOTER */
@@ -174,8 +195,8 @@ body {
     width: 100%;
 
     flex-direction: column;
-    padding: 10px;
-    gap: 8px;
+    padding: 12px;
+    gap: 10px;
 
     background: rgba(5, 5, 15, 0.95);
     backdrop-filter: blur(12px);
@@ -191,10 +212,10 @@ body {
 
   #volume {
     width: 100%;
-    box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 0 12px rgba(139, 92, 246, 0.4);
   }
 
-  /* REMOVE FULLSCREEN */
+  /* FULLSCREEN OFF */
 
   #fullscreen {
     display: none !important;

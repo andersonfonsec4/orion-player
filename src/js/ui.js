@@ -12,10 +12,55 @@ const volume = document.getElementById("volume");
 const fullscreenBtn = document.getElementById("fullscreen");
 
 const title = document.getElementById("track-title");
+const cover = document.getElementById("cover");
 
 let dragIndex = null;
 
+/* ========================= */
+/* 🎵 METADATA (NOVO) */
+/* ========================= */
+
+function updateMetadata(file) {
+  // fallback
+  title.textContent = file.name;
+  cover.src = "assets/default-cover.jpg";
+
+  if (!window.jsmediatags) return;
+
+  window.jsmediatags.read(file, {
+    onSuccess: function (tag) {
+      const { title: songTitle, artist } = tag.tags;
+
+      // 🎧 título + artista
+      title.textContent =
+        (artist ? artist + " - " : "") + (songTitle || file.name);
+
+      // 💿 capa
+      const picture = tag.tags.picture;
+
+      if (picture) {
+        let base64String = "";
+
+        for (let i = 0; i < picture.data.length; i++) {
+          base64String += String.fromCharCode(picture.data[i]);
+        }
+
+        const imageUrl =
+          "data:" + picture.format + ";base64," + btoa(base64String);
+
+        cover.src = imageUrl;
+      }
+    },
+
+    onError: function (error) {
+      console.log("Erro metadata:", error);
+    },
+  });
+}
+
+/* ========================= */
 /* UPLOAD */
+/* ========================= */
 
 fileInput.addEventListener("change", (e) => {
   const files = e.target.files;
@@ -25,6 +70,7 @@ fileInput.addEventListener("change", (e) => {
     playlist.push({
       title: file.name,
       file: URL.createObjectURL(file),
+      raw: file, // 🔥 necessário para metadata
     });
   }
 
@@ -34,12 +80,15 @@ fileInput.addEventListener("change", (e) => {
     player.load(startIndex);
     player.play();
     updateTitle();
+    updateMetadata(playlist[startIndex].raw);
   }
 
   fileInput.value = "";
 });
 
+/* ========================= */
 /* RENDER PLAYLIST */
+/* ========================= */
 
 function render() {
   playlistUI.innerHTML = "";
@@ -55,6 +104,7 @@ function render() {
       player.load(i);
       player.play();
       updateTitle();
+      updateMetadata(track.raw); // 🔥 aqui entra metadata
     };
 
     const remove = document.createElement("button");
@@ -96,7 +146,9 @@ function render() {
   });
 }
 
+/* ========================= */
 /* UPDATE TITLE */
+/* ========================= */
 
 function updateTitle() {
   if (playlist[player.index]) {
@@ -104,7 +156,9 @@ function updateTitle() {
   }
 }
 
+/* ========================= */
 /* CONTROLES */
+/* ========================= */
 
 playBtn.onclick = () => {
   if (!playlist.length) return;
@@ -112,6 +166,7 @@ playBtn.onclick = () => {
   if (!player.audio.src) {
     player.load(0);
     updateTitle();
+    updateMetadata(playlist[0].raw);
   }
 
   player.toggle();
@@ -119,21 +174,29 @@ playBtn.onclick = () => {
 
 nextBtn.onclick = () => {
   if (!playlist.length) return;
+
   player.next();
+  updateMetadata(playlist[player.index].raw);
 };
 
 prevBtn.onclick = () => {
   if (!playlist.length) return;
+
   player.prev();
+  updateMetadata(playlist[player.index].raw);
 };
 
+/* ========================= */
 /* VOLUME */
+/* ========================= */
 
 volume.oninput = () => {
   player.audio.volume = volume.value;
 };
 
+/* ========================= */
 /* FULLSCREEN */
+/* ========================= */
 
 fullscreenBtn.onclick = () => {
   if (!document.fullscreenElement) {
@@ -143,7 +206,9 @@ fullscreenBtn.onclick = () => {
   }
 };
 
+/* ========================= */
 /* EQUALIZER */
+/* ========================= */
 
 const eqSliders = document.querySelectorAll(".eq-band input");
 
@@ -153,7 +218,9 @@ eqSliders.forEach((slider, index) => {
   });
 });
 
+/* ========================= */
 /* PRESETS */
+/* ========================= */
 
 const presetSelect = document.getElementById("preset");
 
@@ -184,7 +251,9 @@ if (presetSelect) {
   });
 }
 
+/* ========================= */
 /* MOBILE SIDEBAR */
+/* ========================= */
 
 const sidebar = document.querySelector(".sidebar");
 const dragBar = document.querySelector(".drag-bar");

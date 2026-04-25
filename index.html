@@ -32,9 +32,23 @@
       <main class="player">
         <canvas id="music-bars"></canvas>
 
-        <!-- 🎵 CAPA -->
         <div class="cover-container">
-          <img id="cover" src="" />
+          <img id="cover" src="assets/default-cover.jpg" />
+        </div>
+
+        <h2 id="track-title">Selecione uma música</h2>
+
+        <div class="time-info">
+          <span id="current-time">0:00</span>
+          <span id="duration">0:00</span>
+        </div>
+
+        <input type="range" id="progress" value="0" />
+
+        <div class="controls">
+          <button id="prev">⏮</button>
+          <button id="play">▶</button>
+          <button id="next">⏭</button>
         </div>
 
         <div class="equalizer-container">
@@ -55,61 +69,17 @@
             </select>
           </div>
 
-          <!-- ✅ CORRIGIDO -->
           <div class="eq-bands">
-            <div class="eq-band">
-              <input type="range" min="-10" max="10" value="0" /><span
-                >60Hz</span
-              >
-            </div>
-            <div class="eq-band">
-              <input type="range" min="-10" max="10" value="0" /><span
-                >120Hz</span
-              >
-            </div>
-            <div class="eq-band">
-              <input type="range" min="-10" max="10" value="0" /><span
-                >250Hz</span
-              >
-            </div>
-            <div class="eq-band">
-              <input type="range" min="-10" max="10" value="0" /><span
-                >500Hz</span
-              >
-            </div>
-            <div class="eq-band">
-              <input type="range" min="-10" max="10" value="0" /><span>1k</span>
-            </div>
-            <div class="eq-band">
-              <input type="range" min="-10" max="10" value="0" /><span>2k</span>
-            </div>
-            <div class="eq-band">
-              <input type="range" min="-10" max="10" value="0" /><span>4k</span>
-            </div>
-            <div class="eq-band">
-              <input type="range" min="-10" max="10" value="0" /><span>8k</span>
-            </div>
-            <div class="eq-band">
-              <input type="range" min="-10" max="10" value="0" /><span
-                >16k</span
-              >
-            </div>
+            <div class="eq-band"><input type="range" min="-10" max="10" value="0" /><span>60Hz</span></div>
+            <div class="eq-band"><input type="range" min="-10" max="10" value="0" /><span>120Hz</span></div>
+            <div class="eq-band"><input type="range" min="-10" max="10" value="0" /><span>250Hz</span></div>
+            <div class="eq-band"><input type="range" min="-10" max="10" value="0" /><span>500Hz</span></div>
+            <div class="eq-band"><input type="range" min="-10" max="10" value="0" /><span>1k</span></div>
+            <div class="eq-band"><input type="range" min="-10" max="10" value="0" /><span>2k</span></div>
+            <div class="eq-band"><input type="range" min="-10" max="10" value="0" /><span>4k</span></div>
+            <div class="eq-band"><input type="range" min="-10" max="10" value="0" /><span>8k</span></div>
+            <div class="eq-band"><input type="range" min="-10" max="10" value="0" /><span>16k</span></div>
           </div>
-        </div>
-
-        <h2 id="track-title">Selecione uma música</h2>
-
-        <div class="time-info">
-          <span id="current-time">0:00</span>
-          <span id="duration">0:00</span>
-        </div>
-
-        <input type="range" id="progress" value="0" />
-
-        <div class="controls">
-          <button id="prev">⏮</button>
-          <button id="play">▶</button>
-          <button id="next">⏭</button>
         </div>
       </main>
     </div>
@@ -122,6 +92,9 @@
 
       <button id="fullscreen">⛶</button>
     </footer>
+
+    <!-- 🔥 BIBLIOTECA METADATA -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js"></script>
 
     <script src="src/js/player.js"></script>
     <script src="src/js/ui.js"></script>
