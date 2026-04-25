@@ -1,6 +1,6 @@
 {
-  "name": "BluePlayer",
-  "short_name": "BluePlayer",
+  "name": "OrionPlayer",
+  "short_name": "OrionPlayer",
   "start_url": "./",
   "display": "standalone",
   "scope": "./",
