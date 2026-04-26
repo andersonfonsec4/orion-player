@@ -16,6 +16,8 @@
 
   <body>
     <div class="layout">
+
+      <!-- 📂 SIDEBAR (DESKTOP) -->
       <aside class="sidebar">
         <div class="drag-bar"></div>
 
@@ -29,29 +31,38 @@
         <ul id="playlist"></ul>
       </aside>
 
+      <!-- 🎧 PLAYER -->
       <main class="player mobile-player">
 
-        <!-- 🎵 VISUALIZER -->
+        <!-- 📱 BOTÃO UPLOAD MOBILE -->
+        <label for="file-input" class="upload-mobile">+ Música</label>
+
+        <!-- 🎵 VISUALIZER (DESKTOP) -->
         <canvas id="music-bars"></canvas>
 
         <!-- 💿 CAPA -->
         <div class="cover-container">
-          <img id="cover" src="assets/default-cover.jpg" />
+          <img id="cover" src="https://via.placeholder.com/300" />
         </div>
+        <button id="mobile-upload-btn">+ Músicas</button>
+<input type="file" id="mobile-file-input" accept="audio/*" hidden />
 
         <!-- 🎧 INFO -->
         <div class="track-info">
           <h2 id="track-title">Selecione uma música</h2>
         </div>
 
-        <!-- ⏱ TEMPO -->
-        <div class="time-info">
-          <span id="current-time">0:00</span>
-          <span id="duration">0:00</span>
-        </div>
+        <!-- 🎚 PROGRESS + TEMPO -->
+        <div class="progress-area">
 
-        <!-- 🎚 PROGRESS -->
-        <input type="range" id="progress" value="0" />
+          <div class="time-info">
+            <span id="current-time">0:00</span>
+            <span id="duration">0:00</span>
+          </div>
+
+          <input type="range" id="progress" value="0" />
+
+        </div>
 
         <!-- 🎮 CONTROLES -->
         <div class="controls">
@@ -60,7 +71,7 @@
           <button id="next">⏭</button>
         </div>
 
-        <!-- 🎛 EQUALIZER -->
+        <!-- 🎛 EQUALIZER (DESKTOP) -->
         <div class="equalizer-container">
           <div class="eq-header">
             <label>Preset:</label>
@@ -95,6 +106,7 @@
       </main>
     </div>
 
+    <!-- 🔊 FOOTER (DESKTOP) -->
     <footer class="footer">
       <div class="volume-area">
         <label>Volume</label>
@@ -104,11 +116,13 @@
       <button id="fullscreen">⛶</button>
     </footer>
 
-    <!-- METADATA -->
+    <!-- 🎵 METADATA -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js"></script>
 
+    <!-- JS -->
     <script src="src/js/player.js"></script>
     <script src="src/js/ui.js"></script>
     <script src="src/js/visualizer.js"></script>
+
   </body>
 </html>
