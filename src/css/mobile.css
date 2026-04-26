@@ -16,12 +16,11 @@ body {
 
 @media screen and (max-width: 768px) {
 
-  /* REMOVE LAYOUT DESKTOP */
-
   .layout {
     display: block;
   }
 
+  /* ESCONDE DESKTOP */
   .sidebar,
   #music-bars,
   .equalizer-container,
@@ -29,19 +28,25 @@ body {
     display: none !important;
   }
 
-  /* PLAYER FULLSCREEN */
+  /* PLAYER */
 
   .mobile-player {
-    height: 100vh;
+    height: 100dvh; /* 🔥 CORRIGIDO */
     width: 100%;
     padding: 20px;
 
     display: flex;
     flex-direction: column;
-
-    justify-content: space-between; /* 🔥 CORREÇÃO PRINCIPAL */
     align-items: center;
 
+    justify-content: center;
+    gap: 20px;
+
+    background: radial-gradient(
+      circle at center,
+      rgba(139, 92, 246, 0.15),
+      #0b0f1a 70%
+    );
   }
 
   /* CAPA */
@@ -52,9 +57,9 @@ body {
   }
 
   .cover-container img {
-    width: 240px;
-    height: 240px;
-    border-radius: 22px;
+    width: 230px;
+    height: 230px;
+    border-radius: 20px;
     object-fit: cover;
 
     box-shadow:
@@ -62,17 +67,13 @@ body {
       0 0 40px rgba(139, 92, 246, 0.2);
   }
 
-  /* BLOCO CENTRAL (AGRUPA INFO + CONTROLES) */
-
-  .track-info {
-    text-align: center;
-    margin-top: 10px;
-  }
+  /* INFO */
 
   #track-title {
     font-size: 18px;
     font-weight: 600;
-    line-height: 1.4;
+    text-align: center;
+    padding: 0 10px;
   }
 
   /* TEMPO */
@@ -90,13 +91,18 @@ body {
   #progress {
     width: 100%;
     height: 4px;
+    appearance: none;
+    background: #333;
+    border-radius: 10px;
   }
 
   #progress::-webkit-slider-thumb {
-    width: 12px;
-    height: 12px;
+    appearance: none;
+    width: 14px;
+    height: 14px;
     background: #a855f7;
     border-radius: 50%;
+    cursor: pointer;
   }
 
   /* CONTROLES */
@@ -105,7 +111,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 28px;
+    gap: 30px;
   }
 
   .controls button {
@@ -113,13 +119,19 @@ body {
     border: none;
     color: white;
     font-size: 20px;
+
+    transition: transform 0.1s ease;
   }
 
-  /* PLAY PRINCIPAL */
+  .controls button:active {
+    transform: scale(0.9);
+  }
+
+  /* PLAY */
 
   #play {
-    width: 72px;
-    height: 72px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
 
     background: radial-gradient(circle, #a855f7, #7c3aed);
@@ -127,7 +139,25 @@ body {
     box-shadow:
       0 0 30px rgba(168, 85, 247, 0.6);
 
-    font-size: 26px;
+    font-size: 24px;
+  }
+
+  /* BOTÃO UPLOAD MOBILE */
+
+  .upload-mobile {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+
+    background: #a855f7;
+    padding: 10px 14px;
+    border-radius: 20px;
+
+    font-size: 14px;
+    color: white;
+
+    z-index: 999;
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
   }
 
 }
