@@ -73,8 +73,8 @@ body {
 
   .player {
     width: 100%;
-    padding: 14px;
-    gap: 14px;
+    padding: 20px 16px;
+    gap: 18px;
 
     overflow-y: auto;
     padding-bottom: 180px;
@@ -90,14 +90,97 @@ body {
     width: 100%;
     height: 80px;
     border-radius: 12px;
-    opacity: 0.6;
+    opacity: 0.5;
   }
 
   /* CAPA */
 
   .cover-container {
-    width: 180px;
-    height: 180px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .cover-container img {
+    width: 220px;
+    height: 220px;
+    border-radius: 20px;
+    object-fit: cover;
+
+    box-shadow:
+      0 20px 50px rgba(139, 92, 246, 0.35),
+      0 0 30px rgba(139, 92, 246, 0.2);
+  }
+
+  /* TITULO */
+
+  #track-title {
+    font-size: 17px;
+    text-align: center;
+    padding: 0 10px;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  /* TEMPO */
+
+  .time-info {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #aaa;
+  }
+
+  /* PROGRESS */
+
+  #progress {
+    width: 100%;
+    height: 4px;
+  }
+
+  #progress::-webkit-slider-thumb {
+    width: 12px;
+    height: 12px;
+    background: #a855f7;
+    border-radius: 50%;
+  }
+
+  /* CONTROLES */
+
+  .controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+    margin-bottom: 25px;
+  }
+
+  .controls button {
+    width: 46px;
+    height: 46px;
+    font-size: 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(30, 30, 64, 0.6);
+    backdrop-filter: blur(6px);
+
+    box-shadow: 0 0 12px rgba(139, 92, 246, 0.3);
+  }
+
+  #play {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+
+    background: radial-gradient(circle, #a855f7, #7c3aed);
+
+    box-shadow:
+      0 0 20px rgba(168, 85, 247, 0.5);
+
+    font-size: 20px;
   }
 
   /* EQUALIZER */
@@ -105,6 +188,8 @@ body {
   .equalizer-container {
     width: 100%;
     padding: 14px;
+    margin-top: 10px;
+    opacity: 0.9;
   }
 
   .eq-bands {
@@ -112,7 +197,7 @@ body {
     justify-content: space-between;
     align-items: flex-end;
 
-    gap: 8px;
+    gap: 6px;
     width: 100%;
 
     overflow: hidden;
@@ -126,64 +211,14 @@ body {
   }
 
   .eq-band input {
-    height: 110px;
+    height: 100px;
     width: 6px;
     cursor: pointer;
   }
 
   .eq-band span {
-    font-size: 10px;
+    font-size: 9px;
     color: #aaa;
-  }
-
-  /* TITULO */
-
-  #track-title {
-    font-size: 16px;
-    text-align: center;
-    padding: 0 10px;
-  }
-
-  /* TEMPO */
-
-  .time-info {
-    font-size: 11px;
-    opacity: 0.8;
-  }
-
-  /* PROGRESS */
-
-  #progress {
-    width: 100%;
-  }
-
-  /* CONTROLES */
-
-  .controls {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    margin-bottom: 25px;
-  }
-
-  .controls button {
-    width: 46px;
-    height: 46px;
-    font-size: 14px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: rgba(30, 30, 64, 0.6);
-    backdrop-filter: blur(6px);
-
-    box-shadow: 0 0 12px rgba(139, 92, 246, 0.3);
-  }
-
-  #play {
-    width: 60px;
-    height: 60px;
   }
 
   /* FOOTER */

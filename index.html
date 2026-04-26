@@ -30,27 +30,37 @@
       </aside>
 
       <main class="player">
+
+        <!-- 🎵 VISUALIZER -->
         <canvas id="music-bars"></canvas>
 
+        <!-- 💿 CAPA -->
         <div class="cover-container">
           <img id="cover" src="assets/default-cover.jpg" />
         </div>
 
-        <h2 id="track-title">Selecione uma música</h2>
+        <!-- 🎧 INFO -->
+        <div class="track-info">
+          <h2 id="track-title">Selecione uma música</h2>
+        </div>
 
+        <!-- ⏱ TEMPO -->
         <div class="time-info">
           <span id="current-time">0:00</span>
           <span id="duration">0:00</span>
         </div>
 
+        <!-- 🎚 PROGRESS -->
         <input type="range" id="progress" value="0" />
 
+        <!-- 🎮 CONTROLES -->
         <div class="controls">
           <button id="prev">⏮</button>
           <button id="play">▶</button>
           <button id="next">⏭</button>
         </div>
 
+        <!-- 🎛 EQUALIZER -->
         <div class="equalizer-container">
           <div class="eq-header">
             <label>Preset:</label>
@@ -81,6 +91,7 @@
             <div class="eq-band"><input type="range" min="-10" max="10" value="0" /><span>16k</span></div>
           </div>
         </div>
+
       </main>
     </div>
 
@@ -93,7 +104,7 @@
       <button id="fullscreen">⛶</button>
     </footer>
 
-    <!-- 🔥 BIBLIOTECA METADATA -->
+    <!-- METADATA -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js"></script>
 
     <script src="src/js/player.js"></script>
